@@ -1,24 +1,61 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [gender, setGender] = useState('');
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(`Name: ${name}, Surname: ${surname}, Email: ${email}, Message: ${message}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <main className='app'>
+      <form className='form' onSubmit={onFormSubmit}>
+        <h1>Contact us</h1>
+        <input 
+          value={name}
+          onChange={({ target }) => setName(target.value)}
+          placeholder="Name"
+          required
+        />
+        <input 
+          value={surname}
+          onChange={({ target }) => setSurname(target.value)}
+          placeholder="Surname"
+          required
+        />
+        <input 
+          type="email"
+          value={email}
+          onChange={({ target }) => setEmail(target.value)}
+          placeholder="example@gmail.com"
+          required
+        />
+        <select
+          value={gender}
+          onChange={({ target }) => setGender(target.value)}
+          placeholder="Gender"
+          required
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+            <option value="" disabled defaultValue={true}>Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+        <textarea 
+          value={message}
+          onChange={({ target }) => setMessage(target.value)}
+          placeholder="Write your message..."
+          reuired="true"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </main>
   );
 }
 
