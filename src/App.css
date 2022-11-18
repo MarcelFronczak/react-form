@@ -33,7 +33,7 @@ h1 {
   box-shadow: 0 0 30px -5px #111;
 }
 
-input, select, textarea {
+input {
   width: 100%;
   margin-bottom: 15px;
   color: #dedede;
@@ -47,10 +47,6 @@ input, select, textarea {
 
 ::placeholder {
   color: #dedede;
-}
-
-textarea {
-  resize: none;
 }
 
 button {
@@ -70,11 +66,23 @@ button:hover {
   transform: scaleY(1.1);
 }
 
-input:focus, textarea:focus {
+input:focus, input:hover {
   outline: none;
-  transform: scaleY(1.2);
+  transform: scaleY(1.1);
 }
 
-select:focus {
-  outline: none;
+.message {
+  height: 50px;
+}
+
+button:active, button:visited {
+  background-color: #2b96fe;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px #2d7eff inset !important;
+  -webkit-text-fill-color: #dedede !important
 }

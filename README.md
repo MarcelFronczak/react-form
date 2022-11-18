@@ -1,1 +1,1 @@
-Simple React Form
+Simple React Form using EmailJS which allow user to send an email to admin
